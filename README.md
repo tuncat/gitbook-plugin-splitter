@@ -1,4 +1,4 @@
-gitbook-plugin-splitter
+gitbook-plugin-splitter-noSessionButCookie
 ==============
 
 ![splitter](https://raw.githubusercontent.com/yoshidax/gitbook-plugin-splitter/master/gitbook-splitter-demo.gif)

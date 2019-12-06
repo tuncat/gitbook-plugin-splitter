@@ -1,5 +1,5 @@
 {
-  "name": "gitbook-plugin-splitter",
+  "name": "gitbook-plugin-splitter-noSessionButCookie",
   "version": "0.0.8",
   "description": "this plug-in provides a vertical bar that divides the summary and main content.",
   "main": "index.js",
@@ -9,15 +9,16 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yoshidax/gitbook-plugin-splitter.git"
+    "url": "git+https://github.com/tuncat/gitbook-plugin-splitter.git"
+    
   },
   "keywords": [
     "gitbook"
   ],
-  "author": "yoshidax",
+  "author": "tuncat/copy by yoshidax",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yoshidax/gitbook-plugin-splitter/issues"
+    "url": "https://github.com/tuncat/gitbook-plugin-splitter/issues"
   },
-  "homepage": "https://github.com/yoshidax/gitbook-plugin-splitter#readme"
+  "homepage": "https://github.com/tuncat/gitbook-plugin-splitter#readme"
 }

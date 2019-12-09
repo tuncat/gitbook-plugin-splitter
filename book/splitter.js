@@ -14,6 +14,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 	gitbook.events.bind('page.change', function () {
 
 		var KEY_SPLIT_STATE = 'plugin_gitbook_split';
+		var obj = {};
 
 		var dividerWidth = null;
 		var isDraggable = false;
@@ -96,29 +97,8 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 			$summary.outerWidth(event.pageX + grabPointWidth);
 			$bookBody.offset({ left: event.pageX + grabPointWidth });
 		});
-
-		function setCookie(cookieName,cookieValue,cookieDates){
-			var d = new Date();
-			d.setDate(d.getDate()+cookieDates);
-			document.cookie = cookieName+"="+cookieValue+";expires="+d.toGMTString();
-		}
-
-		function getCookie(cookieName){
-			var cookieStr = unescape(document.cookie);
-			var arr = cookieStr.split("; ");
-			var cookieValue = "";
-			for(var i=0;i<arr.length;i++){
-				var temp = arr[i].split("=");
-				if(temp[0]==cookieName){
-					cookieValue = temp[1];
-					break;
-				}
-			}
-			return cookieValue;
-		}
 		function getSplitState() {
-			// var splitState = JSON.parse(sessionStorage.getItem(KEY_SPLIT_STATE));
-			var splitState = JSON.parse(getCookie(KEY_SPLIT_STATE));
+			var splitState = obj;
 			splitState || (splitState = {});
 			splitState.summaryWidth || (splitState.summaryWidth = $summary.outerWidth());
 			splitState.summaryOffset || (splitState.summaryOffset = $summary.position().left);
@@ -127,16 +107,9 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 		}
 
 		function saveSplitState(summaryWidth, summaryWidthOffset, bookBodyOffset) {
-			setCookie(KEY_SPLIT_STATE,JSON.stringify({
-				summaryWidth: summaryWidth,
-				summaryOffset: summaryWidthOffset,
-				bookBodyOffset: bookBodyOffset,
-			}),1)
-			// sessionStorage.setItem(KEY_SPLIT_STATE, JSON.stringify({
-			// 	summaryWidth: summaryWidth,
-			// 	summaryOffset: summaryWidthOffset,
-			// 	bookBodyOffset: bookBodyOffset,
-			// }));
+			obj.summaryWidth = summaryWidth
+			obj.summaryOffset = summaryWidthOffset
+			obj.bookBodyOffset = bookBodyOffset
 		}
 
 		function setSplitState(summaryWidth, summaryOffset, bookBodyOffset) {
